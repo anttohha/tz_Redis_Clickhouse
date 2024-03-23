@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  clickhouse:
+    image: yandex/clickhouse-server:latest
+    ports:
+      - "8123:8123" # HTTP интерфейс
+      - "9000:9000" # Native клиент
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+    networks:
+      - clickhouse_net
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - clickhouse_net
+
+volumes:
+  clickhouse_data:
+  redis_data:
+
+networks:
+  clickhouse_net:
+    driver: bridge
