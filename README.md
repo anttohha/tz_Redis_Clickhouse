@@ -1,2 +1,21 @@
-# tz_Redis_Clickhouse
-for tz redis and clickhouse
+﻿С начала надо запустить Docker compose
+- для запуска Clickhouse и Redis и настройки
+Всё запускается на localhost
+
+после этого надо запустить db.py
+
+db.py
+- создаёт фейковые данные в clickhouse и одновременно очереди в Redis
+
+
+так же имеется файл how_in_redis.py, для вывода 
+- Длина очереди 'task_queue': 1535
+ - и задачи в очереди 'task_queue':
+ 
+main.py
+основной файл в котором происходит выполнение задания 
+
+так же необходимо иметь  api_dev_key
+ Для этого надо зарегистрироваться на сайте https://pastebin.com 
+
+
